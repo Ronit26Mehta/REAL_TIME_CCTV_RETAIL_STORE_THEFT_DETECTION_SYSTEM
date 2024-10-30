@@ -129,7 +129,8 @@ A performance report is generated in `data/performance_report.txt`, which includ
 - **Average mAP**: Measures detection accuracy.
 - **Strengths and Limitations**: Describes system performance under various conditions, with recommendations for improvement.
   ## generated performace  report:
-  ![image](https://github.com/user-attachments/assets/09c6e765-018b-4841-8f08-c8f0dad835db)
+  ![image](https://github.com/user-attachments/assets/9f34b1b6-ec1f-4877-a73d-008d9223e147)
+
 
 
 ## Front End Plus Detection Example:
