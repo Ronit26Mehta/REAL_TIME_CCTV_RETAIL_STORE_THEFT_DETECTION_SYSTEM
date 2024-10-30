@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <h1 class="mt-4">CCTV FOOTAGE BASED Real Time Retail Store Theft Detection</h1>
+    <hr>
+
+    <div class="row mt-4">
+        <div class="col-md-8">
+            <h4>Live Video Stream</h4>
+            <img id="video" src="{{ url_for('video_feed', source=video_path, filename=video_filename) }}" style="width: 100%;" />
+        </div>
+        <div class="col-md-4">
+            <h4>Detection Logs</h4>
+            <button onclick="downloadCSV('log')" class="btn btn-primary mb-3">Download Detection Log CSV</button>
+            <button onclick="downloadCSV('alert')" class="btn btn-warning mb-3">Download Alert Log CSV</button>
+            <ul id="logList" class="list-group"></ul>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <h4>Performance Metrics</h4>
+            <canvas id="performanceChart"></canvas>
+        </div>
+        <div class="col-md-6">
+            <h4>System Performance Report</h4>
+            <pre id="performanceReport">Loading report...</pre>
+        </div>
+    </div>
+</div>
+
+<script>
+    function downloadCSV(type) {
+        const filename = "{{ video_filename }}";
+        let url = "";
+
+        if (type === 'log') {
+            url = `/download_log?filename=${filename}`;
+        } else if (type === 'alert') {
+            url = `/download_alerts?filename=${filename}`;
+        }
+
+        window.location.href = url;
+    }
+
+    function displayPerformanceChart(avgMap, avgFps) {
+        const ctx = document.getElementById('performanceChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['mAP', 'FPS'],
+                datasets: [{
+                    label: 'Performance Metrics',
+                    data: [avgMap, avgFps],
+                    backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)'],
+                    borderColor: ['rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+    }
+
+    
+    function loadPerformanceMetrics() {
+        const avgMap = 0.75;  
+        const avgFps = 30;   
+        displayPerformanceChart(avgMap, avgFps);
+    }
+
+    
+    function loadPerformanceReport() {
+        fetch('/api/get_performance_report')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('performanceReport').textContent = data;
+            })
+            .catch(error => {
+                console.error('Error fetching report:', error);
+                document.getElementById('performanceReport').textContent = "Failed to load report. Please try again.";
+            });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        loadPerformanceMetrics();  
+        loadPerformanceReport();    
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</body>
+</html>

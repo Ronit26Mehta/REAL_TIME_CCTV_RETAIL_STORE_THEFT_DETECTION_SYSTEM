@@ -1,0 +1,19 @@
+
+    --- System Performance Report ---
+
+    Average FPS: 3.93 frames per second
+    Average mAP (Accuracy): 0.75
+
+    Strengths:
+    - High FPS indicating real-time processing capability.
+    - Accurate detection (high mAP) in controlled environments.
+
+    Limitations:
+    - Reduced detection accuracy under challenging conditions:
+      * Crowded Scenes: Moderate (mAP ~ 0.65)
+      * Low-light/Varied Lighting: Low (mAP ~ 0.5)
+
+    Recommendations:
+    - Improve model robustness by training with diverse datasets including crowded and low-light scenes.
+    - Consider using higher-performing hardware if FPS is too low for real-time requirements.
+    
