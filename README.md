@@ -107,16 +107,19 @@ Logs alerts for suspicious activities by writing to the alert CSV file.
 ## Data Visualization:
    Avg Map for  one instance:
    
-   ![image](https://github.com/user-attachments/assets/275a6e77-f101-477d-9962-b5c9f08e1b34)
+   ![image](https://github.com/user-attachments/assets/7d240ab9-9797-4121-882f-766e7410f005)
+
 
    Avg Fps for one instance:
    
-   ![image](https://github.com/user-attachments/assets/85b7c874-8783-4b33-ab21-712a68390df1)
+   ![image](https://github.com/user-attachments/assets/cb057aab-e7bd-41b1-8d4a-3da75b16a473)
+
 
 
    plot :
 
-   ![image](https://github.com/user-attachments/assets/780285ac-9fb8-41b2-97c5-477fa8ba515c)
+  ![image](https://github.com/user-attachments/assets/53f1da65-4054-456f-85e1-793974ad5576)
+
 
    
 ## Performance Reporting
@@ -132,16 +135,19 @@ A performance report is generated in `data/performance_report.txt`, which includ
 ## Front End Plus Detection Example:
 
    Upload Screen:
-   ![image](https://github.com/user-attachments/assets/58f0248e-1448-4c7b-8281-96a892b09b13)
+  ![image](https://github.com/user-attachments/assets/c1c1457c-6528-4433-9310-159c672fe421)
+
 
    
 
    DashBoard:
-   ![image](https://github.com/user-attachments/assets/f0486b98-1c2b-433e-ac71-da5fca2ab943)
+   ![image](https://github.com/user-attachments/assets/b10defac-fbdd-4fd0-9f7e-e7fa5f6b8f3f)
+
 
 
    Suspucious Work Detection:
-   ![image](https://github.com/user-attachments/assets/a7706572-90e8-42b5-8444-a7a92143af37)
+   ![image](https://github.com/user-attachments/assets/dbd8f914-1f7b-4eff-bb9a-3cb42bf6da48)
+
 
 
 
